@@ -26,7 +26,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*
+
 Route::get('/admin', function () {
     return view('layout.admin');
 });
@@ -46,7 +46,7 @@ Route::get('/project', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-*/
+
 
 //Auth
 Route::group(['middleware' => 'guest'], function() {
@@ -67,4 +67,5 @@ Route::group(['Middleware' => 'auth'], function(){
     Route::get('/mastercontact/create/{id_siswa}', [contactcontroller::class, 'create']);
     Route::post('/mastercontact/store/{id_siswa}', [contactcontroller::class, 'store']);
     Route::post('logout', [logincontroller::class, 'logout'])->name('logout');
+    
 });

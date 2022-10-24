@@ -10,7 +10,7 @@
                 <p>{{$item->pivot->deskripsi}}</p>
             </div>
             <div class="card-footer d-inline-flex justify-content-end">
-                <a class="btn btn-sm btn-success" href="/mastercontact/{{$item->id}}/edit">edit</a>
+                <a class="btn btn-sm btn-success" href="/mastercontact/{{$item->pivot->id}}/edit">edit</a>
                 <form action="mastercontact/{{$item->id}}" method="post">
                     @method('delete')
                     @csrf

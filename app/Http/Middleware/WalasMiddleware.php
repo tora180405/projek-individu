@@ -17,7 +17,7 @@ class WalasMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->role == 2){
+        if(Auth::user()->role != 'walas'){
             return $next($request);
         }
         return redirect()->back();
