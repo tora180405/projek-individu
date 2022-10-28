@@ -57,11 +57,11 @@ class siswacontroller extends Controller
         
 
         //insert data
-        if($request->foto != ''){
+        if($request->has('foto')){
             $file = $request->file('foto');
-        $nama_file = time()."_".$file->getClientOriginalName();
-        $tujuan_upload = './template/img/';
-        $file->move($tujuan_upload, $nama_file); 
+            $nama_file = time()."_".$file->getClientOriginalName();
+            $tujuan_upload = './template/img/';
+            $file->move($tujuan_upload, $nama_file); 
             siswa::create([
                 'nama' => $request-> nama, 
                 'nisn' => $request-> nisn,
