@@ -38,7 +38,10 @@
                             <td>
                                 <a href="{{route('mastersiswa.show', $item -> id)}}" class="btn btn-info btn-circle btn-sm"><i class="fas fa-info-circle"></i></a>
                                 <a href="{{route('mastersiswa.edit', $item -> id)}}" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-exclamation-triangle"></i></a>
-                                <a href="{{route('mastersiswa.hapus', $item -> id)}}" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
+                                <form action="/mastersiswa/{{$item->id}}/hapus" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
