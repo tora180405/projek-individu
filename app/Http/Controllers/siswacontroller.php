@@ -61,24 +61,32 @@ class siswacontroller extends Controller
             $file = $request->file('foto');
             $nama_file = time()."_".$file->getClientOriginalName();
             $tujuan_upload = './template/img/';
-            $file->move($tujuan_upload, $nama_file); 
-            siswa::create([
-                'nama' => $request-> nama, 
-                'NISN' => $request-> nisn,
-                'alamat' => $request-> alamat,
-                'jk' => $request-> jk,
-                'foto' => $nama_file,
-                'about' => $request-> about
-            ]);
+            $file->move($tujuan_upload, $nama_file);
+            $siswa = new siswa(); 
+            $siswa->nama = $request-> nama; 
+            $siswa->NISN = $request-> nisn;
+            $siswa->alamat = $request-> alamat;
+            $siswa->jk = $request-> jk;
+            $siswa->foto = $nama_file;
+            $siswa->about = $request-> about;
+            $siswa->save();
         }else {
-            siswa::create([
-                'nama' => $request-> nama, 
-                'NISN' => $request-> nisn,
-                'alamat' => $request-> alamat,
-                'jk' => $request-> jk,
-                'foto' => 'kntl',
-                'about' => $request-> about
-            ]);
+            // siswa::create([
+            //     'nama' => $request-> nama, 
+            //     'NISN' => $request-> nisn,
+            //     'alamat' => $request-> alamat,
+            //     'jk' => $request-> jk,
+            //     'foto' => 'kntl',
+            //     'about' => $request-> about
+            // ]);
+            $siswa = new siswa();
+            $siswa->nama = $request-> nama; 
+          $siswa->NISN = $request-> nisn;
+          $siswa->alamat = $request-> alamat;
+          $siswa->jk = $request-> jk;
+          $siswa->foto = 123123;
+          $siswa->about = $request-> about;
+          $siswa->save();
         }
 
         Session::flash('massages', 'Data berhasil ditambahkan');
