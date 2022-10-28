@@ -41,8 +41,7 @@ class siswacontroller extends Controller
         $massages = [
             'min' => ':attribute minimal diisi :min karakter',
             'max' => ':attribute maksimal diisi :max karakter',
-            'numeric' => ':attribute harus berupa angka',
-            'mimes' => 'file :attribute harus bertipe jpg, png, jpeg'
+            'numeric' => ':attribute harus berupa angka'
         ]; 
 
         //validation form
@@ -51,7 +50,6 @@ class siswacontroller extends Controller
             'nisn' => 'required|numeric',
             'alamat' => 'required',
             'jk' => 'required',
-            'foto' => 'required|mimes:jpg,png,jpeg',
             'about' => 'required|min:10'
         ], $massages);
 
