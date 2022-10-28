@@ -60,14 +60,26 @@ class siswacontroller extends Controller
         $file->move($tujuan_upload, $nama_file); 
 
         //insert data
-        siswa::create([
-            'nama' => $request-> nama, 
-            'nisn' => $request-> nisn,
-            'alamat' => $request-> alamat,
-            'jk' => $request-> jk,
-            'foto' => $nama_file,
-            'about' => $request-> about
-        ]);
+        if($request->foto != ''){
+
+            siswa::create([
+                'nama' => $request-> nama, 
+                'nisn' => $request-> nisn,
+                'alamat' => $request-> alamat,
+                'jk' => $request-> jk,
+                'foto' => $nama_file,
+                'about' => $request-> about
+            ]);
+        }else {
+            siswa::create([
+                'nama' => $request-> nama, 
+                'nisn' => $request-> nisn,
+                'alamat' => $request-> alamat,
+                'jk' => $request-> jk,
+                'foto' => 'kntl',
+                'about' => $request-> about
+            ]);
+        }
 
         Session::flash('massages', 'Data berhasil ditambahkan');
         return redirect('/mastersiswa');
