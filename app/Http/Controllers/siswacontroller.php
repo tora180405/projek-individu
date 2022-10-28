@@ -55,7 +55,7 @@ class siswacontroller extends Controller
         //ambil foto file
         $siswa = new siswa();
        $siswa->nama= $request-> nama; 
-               $siswa->nisn= $request-> nisn;
+               $siswa->NISN= $request-> nisn;
                $siswa->alamat= $request-> alamat;
                $siswa->jk= $request-> jk;
                $siswa->foto= 21323;
