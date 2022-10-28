@@ -111,6 +111,7 @@ class siswacontroller extends Controller
     public function update(Request $request, $id)
     {
         $massages = [
+            'required' => ':attribute harus diisi',
             'min' => ':attribute minimal diisi :min karakter',
             'max' => ':attribute maksimal diisi :max karakter',
             'numeric' => ':attribute harus berupa angka',
@@ -123,7 +124,6 @@ class siswacontroller extends Controller
             'nisn' => 'required|numeric',
             'alamat' => 'required',
             'jk' => 'required',
-            'foto' => 'required|mimes:jpg,png,jpeg',
             'about' => 'required|min:10'
         ], $massages);
 
