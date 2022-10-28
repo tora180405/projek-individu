@@ -37,7 +37,7 @@ class siswacontroller extends Controller
      */
     public function store(Request $request)
     {
-
+        return "HELLOW";
         $massages = [
             'min' => ':attribute minimal diisi :min karakter',
             'max' => ':attribute maksimal diisi :max karakter',
@@ -57,20 +57,20 @@ class siswacontroller extends Controller
         
 
         //insert data
-        // if($request->has('foto')){
-            // $file = $request->file('foto');
-            // $nama_file = time()."_".$file->getClientOriginalName();
-            // $tujuan_upload = './template/img/';
-            // $file->move($tujuan_upload, $nama_file); 
-            // siswa::create([
-            //     'nama' => $request-> nama, 
-            //     'nisn' => $request-> nisn,
-            //     'alamat' => $request-> alamat,
-            //     'jk' => $request-> jk,
-            //     'foto' => $nama_file,
-            //     'about' => $request-> about
-            // ]);
-        // }else {
+        if($request->has('foto')){
+            $file = $request->file('foto');
+            $nama_file = time()."_".$file->getClientOriginalName();
+            $tujuan_upload = './template/img/';
+            $file->move($tujuan_upload, $nama_file); 
+            siswa::create([
+                'nama' => $request-> nama, 
+                'nisn' => $request-> nisn,
+                'alamat' => $request-> alamat,
+                'jk' => $request-> jk,
+                'foto' => $nama_file,
+                'about' => $request-> about
+            ]);
+        }else {
             siswa::create([
                 'nama' => $request-> nama, 
                 'nisn' => $request-> nisn,
@@ -79,7 +79,7 @@ class siswacontroller extends Controller
                 'foto' => 'kntl',
                 'about' => $request-> about
             ]);
-        // }
+        }
 
         Session::flash('massages', 'Data berhasil ditambahkan');
         return redirect('/mastersiswa');
