@@ -39,7 +39,6 @@ class siswacontroller extends Controller
     {
 
         $massages = [
-            'required' => ':attribute harus diisi',
             'min' => ':attribute minimal diisi :min karakter',
             'max' => ':attribute maksimal diisi :max karakter',
             'numeric' => ':attribute harus berupa angka',
