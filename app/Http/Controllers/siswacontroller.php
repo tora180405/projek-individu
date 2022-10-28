@@ -37,7 +37,6 @@ class siswacontroller extends Controller
      */
     public function store(Request $request)
     {
-        return "HELLOW";
         $massages = [
             'min' => ':attribute minimal diisi :min karakter',
             'max' => ':attribute maksimal diisi :max karakter',
