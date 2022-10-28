@@ -114,8 +114,7 @@ class siswacontroller extends Controller
             'required' => ':attribute harus diisi',
             'min' => ':attribute minimal diisi :min karakter',
             'max' => ':attribute maksimal diisi :max karakter',
-            'numeric' => ':attribute harus berupa angka',
-            'mimes' => 'file :attribute harus bertipe jpg, png, jpeg'
+            'numeric' => ':attribute harus berupa angka'
         ]; 
 
         //validation form
