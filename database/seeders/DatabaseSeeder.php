@@ -22,12 +22,12 @@ class DatabaseSeeder extends Seeder
         //    UserSeeder::class,
         // ]);
 
-        // User::create([
-        //     'name' => 'admin',
-        //     'email' => 'admin@gmail.com',
-        //     'password' => bcrypt('123456'),
-        //     'role' => 'admin'
-        // ]);
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('123456'),
+            'role' => 'admin'
+        ]);
 
         jenis_kontak::created([
             'jenis_kontak' => 'whatsapp'
