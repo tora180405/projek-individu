@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('alamat');
             $table->char('jk');
-            $table->char('foto');
+            $table->string('foto', 255)->nullable();
             $table->char('about');
             $table->timestamps();
         });
