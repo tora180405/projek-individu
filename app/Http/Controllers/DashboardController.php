@@ -20,7 +20,7 @@ class DashboardController extends Controller
     {
         $jumlah =siswa::all()->count();
         $jumlah2 =project::all()->count();
-    return view('Dashboard', compact('jumlah', 'jumlah2'));
+    return view('dashboard', compact('jumlah', 'jumlah2'));
     }
 
     /**
