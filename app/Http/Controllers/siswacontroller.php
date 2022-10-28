@@ -37,6 +37,7 @@ class siswacontroller extends Controller
      */
     public function store(Request $request)
     {
+
         $massages = [
             'min' => ':attribute minimal diisi :min karakter',
             'max' => ':attribute maksimal diisi :max karakter',
@@ -51,15 +52,19 @@ class siswacontroller extends Controller
             'jk' => 'required',
             'about' => 'required|min:10'
         ], $massages);
+
+        //ambil foto file
+        
+
         //insert data
-        if($request->has('foto')){
+        if($request->foto != ''){
             $file = $request->file('foto');
             $nama_file = time()."_".$file->getClientOriginalName();
             $tujuan_upload = './template/img/';
             $file->move($tujuan_upload, $nama_file); 
             siswa::create([
                 'nama' => $request-> nama, 
-                'NISN' => $request-> nisn,
+                'nisn' => $request-> nisn,
                 'alamat' => $request-> alamat,
                 'jk' => $request-> jk,
                 'foto' => $nama_file,
@@ -68,7 +73,7 @@ class siswacontroller extends Controller
         }else {
             siswa::create([
                 'nama' => $request-> nama, 
-                'NISN' => $request-> nisn,
+                'nisn' => $request-> nisn,
                 'alamat' => $request-> alamat,
                 'jk' => $request-> jk,
                 'foto' => 'kntl',
