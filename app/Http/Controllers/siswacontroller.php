@@ -64,7 +64,7 @@ class siswacontroller extends Controller
             $file->move($tujuan_upload, $nama_file); 
             siswa::create([
                 'nama' => $request-> nama, 
-                'nisn' => $request-> nisn,
+                'NISN' => $request-> nisn,
                 'alamat' => $request-> alamat,
                 'jk' => $request-> jk,
                 'foto' => $nama_file,
@@ -73,7 +73,7 @@ class siswacontroller extends Controller
         }else {
             siswa::create([
                 'nama' => $request-> nama, 
-                'nisn' => $request-> nisn,
+                'NISN' => $request-> nisn,
                 'alamat' => $request-> alamat,
                 'jk' => $request-> jk,
                 'foto' => 'kntl',
