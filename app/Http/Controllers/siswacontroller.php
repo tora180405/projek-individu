@@ -51,41 +51,30 @@ class siswacontroller extends Controller
             'jk' => 'required',
             'about' => 'required|min:10'
         ], $massages);
-
-        //ambil foto file
-        $siswa = new siswa();
-       $siswa->nama= $request-> nama; 
-               $siswa->NISN= $request-> nisn;
-               $siswa->alamat= $request-> alamat;
-               $siswa->jk= $request-> jk;
-               $siswa->foto= 21323;
-               $siswa->about= $request->about;
-               $siswa->save();
-
         //insert data
-        // if($request->has('foto')){
-        //     $file = $request->file('foto');
-        //     $nama_file = time()."_".$file->getClientOriginalName();
-        //     $tujuan_upload = './template/img/';
-        //     $file->move($tujuan_upload, $nama_file); 
-        //     siswa::create([
-        //         'nama' => $request-> nama, 
-        //         'nisn' => $request-> nisn,
-        //         'alamat' => $request-> alamat,
-        //         'jk' => $request-> jk,
-        //         'foto' => $nama_file,
-        //         'about' => $request-> about
-        //     ]);
-        // }else {
-        //     siswa::create([
-        //         'nama' => $request-> nama, 
-        //         'nisn' => $request-> nisn,
-        //         'alamat' => $request-> alamat,
-        //         'jk' => $request-> jk,
-        //         'foto' => 'kntl',
-        //         'about' => $request-> about
-        //     ]);
-        // }
+        if($request->has('foto')){
+            $file = $request->file('foto');
+            $nama_file = time()."_".$file->getClientOriginalName();
+            $tujuan_upload = './template/img/';
+            $file->move($tujuan_upload, $nama_file); 
+            siswa::create([
+                'nama' => $request-> nama, 
+                'NISN' => $request-> nisn,
+                'alamat' => $request-> alamat,
+                'jk' => $request-> jk,
+                'foto' => $nama_file,
+                'about' => $request-> about
+            ]);
+        }else {
+            siswa::create([
+                'nama' => $request-> nama, 
+                'NISN' => $request-> nisn,
+                'alamat' => $request-> alamat,
+                'jk' => $request-> jk,
+                'foto' => 'kntl',
+                'about' => $request-> about
+            ]);
+        }
 
         Session::flash('massages', 'Data berhasil ditambahkan');
         return redirect('/mastersiswa');
