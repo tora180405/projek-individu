@@ -1,6 +1,6 @@
 @extends('layout.admin')
 @section('title', 'home')
-@section('content-title', 'edit kontak')
+@section('content-title', 'tambah kontak')
 @section('content')
 
     <div class="card shadow mb-4">

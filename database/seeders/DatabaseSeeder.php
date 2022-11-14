@@ -29,19 +29,19 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin'
         ]);
 
-        jenis_kontak::created([
+        jenis_kontak::create([
             'jenis_kontak' => 'whatsapp'
         ]);
         
-        jenis_kontak::created([
+        jenis_kontak::create([
             'jenis_kontak' => 'line'
         ]);
         
-        jenis_kontak::created([
+        jenis_kontak::create([
             'jenis_kontak' => 'instagram'
         ]);
 
-        jenis_kontak::created([
+        jenis_kontak::create([
             'jenis_kontak' => 'facebook'
         ]);
 
